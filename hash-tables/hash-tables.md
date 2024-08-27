@@ -47,6 +47,9 @@ They aren't perfect though, hashing collisions can occur
 ## Hash Collisions
 
 A hash collision can occur when two keys x and y are not equal but their hashing function outputs are.
-`x != y` 
-`h(x) == h(y)`
+```
+Example:
+x != y
+h(x) == h(y)
+```
 
