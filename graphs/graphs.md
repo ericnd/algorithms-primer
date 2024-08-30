@@ -67,4 +67,55 @@ Some other types of graphs include:
 - Multi-Graphs, which allow edges between two vertices, e.g. function call graph (f() calls g() in several places).
 - Labelled Graphs, edges have associated labels, this can be used to add semantic information.
 
+## Graph Representations
+
+There are 3 main graph representations
+
+- Adjacency Matrix, edges defined by presence value in a V x V matrix
+- Adjacency List, edges defined by entires in array of V lists
+- Array of edges, explicit representation of edges as (v, w) pairs
+
+We'll consider these representations for unweighted and directed graphs
+
+# undirected
+```
+[
+    0, 1, 0, 1
+    1, 0, 0, 1
+    0, 0, 0, 1
+    1, 1, 1, 0
+]
+```
+
+will give us a graph that looks like:
+```
+1 - 3 - 2
+ \ /
+  0
+```
+
+# directed
+```
+[
+    0, 1, 0, 1
+    1, 0, 0, 1
+    0, 0, 0, 0
+    0, 0, 1, 0
+]
+```
+
+will give us a graph that looks like:
+```
+1 -> 3 -> 2
+^   ^
+ \ /
+ v
+  0
+```
+
+# Advantages 
+- Efficient, edge insertion/deletion and adjaccency check is O(1)
+# Disadvantages
+- HUGE MEMORY USAGE O(V^2), sparse graphs waste space and undirected graphs waste space
+
 
