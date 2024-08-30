@@ -77,7 +77,8 @@ There are 3 main graph representations
 
 We'll consider these representations for unweighted and directed graphs
 
-# undirected
+# Adjacency Matrix
+__undirected__
 ```
 [
     0, 1, 0, 1
@@ -94,7 +95,7 @@ will give us a graph that looks like:
   0
 ```
 
-# directed
+__directed__
 ```
 [
     0, 1, 0, 1
@@ -113,9 +114,9 @@ will give us a graph that looks like:
   0
 ```
 
-# Advantages 
+__Advantages__
 - Efficient, edge insertion/deletion and adjaccency check is O(1)
-# Disadvantages
+__Disadvantages__
 - HUGE MEMORY USAGE O(V^2), sparse graphs waste space and undirected graphs waste space
 
 
