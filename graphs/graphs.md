@@ -262,6 +262,9 @@ procedure DFS(G, v) is
         if vertex w is not labeled as discovered then
             recursively call DFS(G, w)
 ```
+The recursive implementation is much easier for beginners to read and understand.
+WARNING: Avoid using the recursive implementation when the graph or tree is increasing complex and large, you could cause a stack overflow and in these cases an iterative implementation with a stack is preferred to avoid this issue. If performance is a key measure then iterative DFS can be faster because it eliminates overhead of recursive function calls.
+
 ```
 # iterative
 procedure DFS_iterative(G, v) is
