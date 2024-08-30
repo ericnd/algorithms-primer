@@ -119,4 +119,82 @@ __Advantages__
 __Disadvantages__
 - HUGE MEMORY USAGE O(V^2), sparse graphs waste space and undirected graphs waste space
 
+# Adjacency List
+__undirected__
+```
+A[0] = <1, 3>
+A[1] = <0, 3>
+A[2] = <3>
+A[3] = <0, 1, 2>
+```
 
+will give us a graph that looks like:
+```
+1 - 3 - 2
+ \ /
+  0
+```
+
+__directed__ (the numbers are the outgoing edges, for node 0, it's outgoing to 1 and 3)
+```
+A[0] = <1, 3>
+A[1] = <0, 3>
+A[2] = <>
+A[3] = <2>
+```
+
+will give us a graph that looks like:
+```
+1 -> 3 -> 2
+^   ^
+ \ /
+ v
+  0
+```
+
+__Advantages__
+- Space efficient for sparse graphs O(V + E) memory usage
+__Disadvantages__
+- Inefficient, edge insertion/deletion O(V) (however this matters less for sparse graphs)
+
+# Array of Edges
+__undirected__
+```
+A = [
+        (0, 1),
+        (0, 3),
+        (1, 3),
+        (2, 3)
+    ]
+```
+
+will give us a graph that looks like:
+```
+1 - 3 - 2
+ \ /
+  0
+```
+
+__directed__
+```
+A = [
+        (0, 1),
+        (0, 3),
+        (1, 3),
+        (3, 2)
+    ]
+```
+
+will give us a graph that looks like:
+```
+1 -> 3 -> 2
+^   ^
+ \ /
+ v
+  0
+```
+
+__Advantages__
+- Very space efficient for sparse graphs where E < V
+__Disadvantages__
+- Inefficient, edge insertion/deletion O(E) 
