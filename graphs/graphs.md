@@ -198,3 +198,80 @@ __Advantages__
 - Very space efficient for sparse graphs where E < V
 __Disadvantages__
 - Inefficient, edge insertion/deletion O(E) 
+
+## Graph Traversal
+
+Some common problems on graphs include:
+- is there a path between two vertices?
+- what is the shortest path between two vertices?
+- is the graph connected?
+- if we remove an edge, is the graph still connected?
+- which vertices are reachable from a particular vertex?
+- is there a cycle that passes through all vertices?
+
+
+All of the above problems can be solved by a systematic exploration of a graph by its edges. This systematic exploration is called traversal or search.
+
+# Problem: Is there a path between vertices _src_ and _dest_?
+
+Possible approach:
+1. Examine vertices adjacent to _src_
+2. if any of them is _dest_, we're done!
+3. Otherwise, check vertices two edges away from _src_
+4. Repeat looking further and further away from _src_
+
+The above summarises one form of graph traversal.
+
+There are two primary methods for graph traversal/search:
+
+__Breadth-First Search (BFS)__
+- Priotises visiting all neighbours over path-following
+- "Go Wide"
+- Implemented iteratively using a queue
+
+__Depth-First Search (DFS)__
+- Priotises path-following over visiting all neighbours
+- "Go Deep"
+- Can be implemented recursively or iteratively (using a stack)
+
+# Breadth-First Search
+__Psuedocode__
+```
+procedure BFS(G, root) is
+    let Q be a queue
+    label root as explored
+    Q.enqueue(root)
+    while Q is not empty do
+        v := Q.dequeue()
+        if v is the goal then
+            return v
+        for all edges from v to w in G.adjacentEdges(v) do
+            if w is not labeled as explored then
+                label w as explored
+                w.parent := v
+                Q.enqueue(w)
+```
+
+# Depth-First Search 
+__Pseudocode__
+```
+# recursive
+procedure DFS(G, v) is
+    label v as discovered
+    for all directed edges from v to w that are in G.adjacentEdges(v) do
+        if vertex w is not labeled as discovered then
+            recursively call DFS(G, w)
+```
+```
+# iterative
+procedure DFS_iterative(G, v) is
+    let S be a stack
+    S.push(v)
+    while S is not empty do
+        v = S.pop()
+        if v is not labeled as discovered then
+            label v as discovered
+            for all edges from v to w in G.adjacentEdges(v) do 
+                S.push(w)
+```
+
